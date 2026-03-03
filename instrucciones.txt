@@ -1,0 +1,46 @@
+         
+         1. Estructura del Proyecto
+/backend: Servidor Node.js con TypeScript y Express. Ya está conectado a la base de datos PostgreSQL.
+
+/frontend: Proyecto base de Angular listo para crear los componentes de la interfaz.
+
+
+         2. Base de Datos (PostgreSQL)
+He adaptado el SQL de Oracle que teníamos a PostgreSQL.
+* Cuando nos den la **URL de la base de datos oficial**, NO hay que tocar el código.
+* Solo tendréis que abrir vuestro archivo `.env` y cambiar la línea `DB_HOST=localhost` por la URL que nos den. 
+* Con ese cambio, vuestro backend se conectará automáticamente a la nube.
+
+Abrid pgAdmin 4.
+
+Cread una base de datos llamada eventos_db.
+
+Ejecutad el script que está en backend/BBDD_EVENTOS-PGSQL.SQL.
+Nota: Ya incluye los triggers para gestionar cancelaciones y fechas automáticamente.
+
+
+
+         3. Configuración del Backend
+Entrad en la carpeta backend y haced:
+
+npm install (para las dependencias).
+
+Cread un archivo llamado .env (copiad el contenido de .env.template).
+
+Poned vuestra contraseña de Postgres en la línea DB_PASSWORD.
+
+Lanzad el server con: npm run dev.
+La API estará en: http://localhost:3000/api/eventos
+
+         4. Configuración del Frontend
+Entrad en la carpeta frontend y haced:
+
+npm install.
+
+Lanzad Angular con: ng serve.
+La web estará en: http://localhost:4200
+
+         5. Cómo conectar Angular con el Backend
+Ya he dejado creado el CORS en el backend para que no dé errores de seguridad.
+En el frontend, usad el servicio EventoService para pedir los datos. 
+No hace falta configurar IPs, ya apunta a nuestro localhost.
